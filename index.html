@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emanuel Dev | Desarrollador Full Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+              },
+            },
+          },
+        }
+    </script>
+    
+  </head>
+  
+  <body class="text-gray-800 font-sans scroll-smooth">
+    <!-- Header mejorado -->
+    <header id="header" class="fixed top-0 w-full z-50 header-bg transition-all duration-300">
+      <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+          <div class="flex items-center">
+              <h1 class="font-bold text-3xl logo-gradient tracking-tight">
+                  EmaDev<span class="text-[var(--accent-color)]">.</span>
+              </h1>
+          </div>
+          
+          <nav class="desktop-nav flex items-center space-x-2">
+              <a href="#inicio" class="nav-link">Inicio</a>
+              <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+              <a href="#habilidades" class="nav-link">Habilidades</a>
+              <a href="#proyectos" class="nav-link">Proyectos</a>
+              <a href="#servicios" class="nav-link">Servicios</a>
+              <a href="#contacto" class="nav-link">Contacto</a>
+          </nav>
+          
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+      </div>
+      
+      <div class="mobile-menu" id="mobileMenu">
+          <a href="#inicio" class="mobile-nav-link" onclick="closeMobileMenu()">Inicio</a>
+          <a href="#sobre-mi" class="mobile-nav-link" onclick="closeMobileMenu()">Sobre mí</a>
+          <a href="#habilidades" class="mobile-nav-link" onclick="closeMobileMenu()">Habilidades</a>
+          <a href="#proyectos" class="mobile-nav-link" onclick="closeMobileMenu()">Proyectos</a>
+          <a href="#servicios" class="mobile-nav-link" onclick="closeMobileMenu()">Servicios</a>
+          <a href="#contacto" class="mobile-nav-link" onclick="closeMobileMenu()">Contacto</a>
+      </div>
+    </header>
+
+    <!-- Hero Section mejorada -->
+    <section id="inicio" class="relative pt-32 pb-20 text-center overflow-hidden min-h-screen flex items-center">
+        <div class="bg-orb w-32 h-32 bg-[#b2d8d7] top-20 left-10 opacity-20"></div>
+        <div class="bg-orb w-24 h-24 bg-[#779c9c] bottom-20 right-20 opacity-15" style="animation-delay: -2s;"></div>
+        <div class="bg-orb w-40 h-40 bg-[#475b5d] top-1/3 right-1/4 opacity-10" style="animation-delay: -4s;"></div>
+        
+        <img
+            src="img/perfilEma.png"
+            alt="Foto de Emanuel"
+            class="absolute top-[29%] right-[18%] -translate-x-1/2 -translate-y-[60%] 
+                   w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 xl:w-56 xl:h-56
+                   object-cover rounded-full border-4 border-[#607173] 
+                   shadow-2xl transition-all duration-500 
+                   floating pulse-glow hover:scale-110 hover:border-[#b2d8d7] hover-glow
+                   z-20"
+        />
+        
+        <div class="relative z-10 px-4 max-w-6xl mx-auto w-full">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="lg:text-left text-center">
+                    <div class="fade-in-up">
+                        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 leading-tight">
+                            <span class="text-[#b2d8d7]">Hola, soy</span>
+                            <br>
+                            <span class="bg-gradient-to-r from-[#b2d8d7] via-[#779c9c] to-[#475b5d] 
+                                       text-transparent bg-clip-text hover:brightness-110 
+                                       transition duration-300 inline-block hover:scale-105">
+                                Emanuel
+                            </span>
+                        </h2>
+                    </div>
+                    
+                    <div class="fade-in-up delay-200">
+                        <p class="text-xl sm:text-2xl lg:text-3xl text-[#779c9c] mb-4 font-semibold">
+                            Desarrollador Web Full Stack
+                        </p>
+                        <p class="text-sm sm:text-base lg:text-lg text-[#607173] mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            Transformo ideas en experiencias digitales excepcionales. 
+                            Especializado en crear soluciones web modernas, escalables y centradas en el usuario.
+                        </p>
+                    </div>
+                    
+                    <div class="fade-in-up delay-400 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contacto" 
+                           class="bg-gradient-to-r from-[#b2d8d7] to-[#779c9c] text-[#14141c] 
+                                  font-semibold px-8 py-4 rounded-full shadow-lg 
+                                  hover:scale-105 hover:shadow-xl hover-glow
+                                  transition-all duration-300 transform hover:-translate-y-1
+                                  inline-flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            Conversemos
+                        </a>
+                        
+                        <a href="#proyectos" 
+                           class="border-2 border-[#b2d8d7] text-[#b2d8d7] 
+                                  font-semibold px-8 py-4 rounded-full 
+                                  hover:bg-[#b2d8d7] hover:text-[#14141c] 
+                                  transition-all duration-300 transform hover:scale-105
+                                  inline-flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            Ver Proyectos
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:block hidden fade-in-up delay-600">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-[#b2d8d7]/10 to-[#779c9c]/10 
+                                    backdrop-blur-sm border border-[#b2d8d7]/20 
+                                    rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                            <div class="text-3xl font-bold text-[#b2d8d7] mb-2">4+</div>
+                            <div class="text-sm text-[#779c9c]">Proyectos</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-[#779c9c]/10 to-[#475b5d]/10 
+                                    backdrop-blur-sm border border-[#779c9c]/20 
+                                    rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                            <div class="text-3xl font-bold text-[#b2d8d7] mb-2">2+</div>
+                            <div class="text-sm text-[#779c9c]">Años</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-[#475b5d]/10 to-[#b2d8d7]/10 
+                                    backdrop-blur-sm border border-[#475b5d]/20 
+                                    rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                            <div class="text-3xl font-bold text-[#b2d8d7] mb-2">10+</div>
+                            <div class="text-sm text-[#779c9c]">Tecnologías</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-[#b2d8d7]/10 to-[#475b5d]/10 
+                                    backdrop-blur-sm border border-[#b2d8d7]/20 
+                                    rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                            <div class="text-3xl font-bold text-[#b2d8d7] mb-2">100%</div>
+                            <div class="text-sm text-[#779c9c]">Dedicación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up delay-800">
+            <div class="animate-bounce">
+                <svg class="w-6 h-6 text-[#b2d8d7] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+            <p class="text-xs text-[#779c9c] mt-2">Scroll</p>
+        </div>
+    </section>
+
+    <!-- Sobre mí mejorado -->
+    <section id="sobre-mi" class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center text-white">
+        <div class="relative group">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#b2d8d7] to-[#779c9c] blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+          <img src="img/work-731198_960_720.jpg" alt="Emanuel trabajando" class="relative rounded-2xl w-full h-auto object-cover shadow-2xl border-4 border-[#607173]" />
+        </div>
+      
+        <div class="flex flex-col justify-center text-center md:text-left space-y-6">
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-[#b2d8d7]">
+            Transformo ideas en<br>
+            <span class="bg-gradient-to-r from-[#779c9c] to-[#475b5d] text-transparent bg-clip-text">experiencias web</span>
+          </h2>
+      
+          <p class="text-lg text-[#d1d1d1] leading-relaxed">
+            Soy Emanuel, un desarrollador apasionado por crear soluciones digitales que impactan. 
+            Combino creatividad técnica con un enfoque centrado en el usuario para entregar productos excepcionales.
+          </p>
+      
+          <div class="grid grid-cols-2 gap-4 text-[#d1d1d1]">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-[#b2d8d7] rounded-full"></div>
+              <span>Egresado de Ingeniería</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-[#b2d8d7] rounded-full"></div>
+              <span>Curioso por la tecnología</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-[#b2d8d7] rounded-full"></div>
+              <span>Amante del código limpio</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-[#b2d8d7] rounded-full"></div>
+              <span>Full Stack Developer</span>
+            </div>
+          </div>
+      
+          <p class="text-md italic text-[#779c9c]">
+            "El código es poesía, y cada proyecto es una oportunidad de crear algo extraordinario."
+          </p>
+      
+          <a href="#habilidades" class="self-start text-[#b2d8d7] hover:text-white font-medium underline underline-offset-4 transition duration-200">
+            Conoce mis habilidades →
+          </a>
+        </div>
+    </section>
+
+    <!-- Habilidades mejoradas -->
+    <section id="habilidades" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+              <div class="inline-flex items-center gap-4 mb-4">
+                  <div class="w-12 h-[2px] bg-gradient-to-r from-transparent to-[#b2d8d7]"></div>
+                  <h3 class="text-4xl md:text-5xl font-bold text-[#b2d8d7] tracking-tight">
+                      Habilidades
+                  </h3>
+                  <div class="w-12 h-[2px] bg-gradient-to-l from-transparent to-[#b2d8d7]"></div>
+              </div>
+              <p class="text-[#b2d8d7]/60 text-lg max-w-2xl mx-auto">
+                  Tecnologías y herramientas que domino para crear experiencias digitales excepcionales
+              </p>
+          </div>
+      
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div class="skill-card">
+              <i data-lucide="code" class="icon-skill"></i>
+              <span class="skill-name">HTML5</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="layers" class="icon-skill"></i>
+              <span class="skill-name">CSS3</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="zap" class="icon-skill"></i>
+              <span class="skill-name">JavaScript</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="box" class="icon-skill"></i>
+              <span class="skill-name">React</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="server" class="icon-skill"></i>
+              <span class="skill-name">Next.js</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="database" class="icon-skill"></i>
+              <span class="skill-name">PostgreSQL</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="wind" class="icon-skill"></i>
+              <span class="skill-name">Tailwind</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="link" class="icon-skill"></i>
+              <span class="skill-name">API Rest</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="git-branch" class="icon-skill"></i>
+              <span class="skill-name">GitHub</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="cloud" class="icon-skill"></i>
+              <span class="skill-name">Vercel</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="users" class="icon-skill"></i>
+              <span class="skill-name">Scrum</span>
+            </div>
+      
+            <div class="skill-card">
+              <i data-lucide="shield" class="icon-skill"></i>
+              <span class="skill-name">JWT</span>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Proyectos mejorados -->
+    <section id="proyectos" class="py-20 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-20 left-10 w-32 h-32 rounded-full bg-[#b2d8d7] blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-[#779c9c] blur-3xl"></div>
+      </div>
+          
+      <div class="relative z-10 max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+              <div class="inline-flex items-center gap-4 mb-4">
+                  <div class="w-12 h-[2px] bg-gradient-to-r from-transparent to-[#b2d8d7]"></div>
+                  <h3 class="text-4xl md:text-5xl font-bold text-[#b2d8d7] tracking-tight">
+                      Proyectos
+                  </h3>
+                  <div class="w-12 h-[2px] bg-gradient-to-l from-transparent to-[#b2d8d7]"></div>
+              </div>
+              <p class="text-[#b2d8d7]/60 text-lg max-w-2xl mx-auto">
+                  Una selección de proyectos que demuestran mi experiencia y pasión por el desarrollo web
+              </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+              <!-- Proyecto 1 -->
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(1)">
+                  <div class="relative overflow-hidden">
+                      <img src="img/habilidades/CCCV.png" 
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Proyecto CCCV">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div class="absolute top-4 right-4 w-3 h-3 bg-[#b2d8d7] rounded-full animate-pulse"></div>
+                  </div>
+                  <div class="p-6">
+                      <div class="mb-3">
+                          <span class="inline-block px-3 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20">
+                              Frontend
+                          </span>
+                      </div>
+                      <h4 class="text-lg font-bold text-[#b2d8d7] mb-3 group-hover:text-[#b2d8d7]/90 transition-colors">
+                          Comunidad Cristiana Cristo Vencedor
+                      </h4>
+                      <p class="text-sm text-[#b2d8d7]/70 mb-4 line-clamp-3">
+                          Sitio web institucional con diseño moderno y funcionalidades interactivas
+                      </p>
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs text-[#b2d8d7]/50">HTML • CSS • JavaScript</span>
+                          <div class="flex items-center text-sm text-[#b2d8d7] group-hover:translate-x-1 transition-transform">
+                              Ver más
+                              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Proyecto 2 -->
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(2)">
+                  <div class="relative overflow-hidden">
+                      <img src="img/habilidades/2.png" 
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Proyecto Vipabi">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div class="absolute top-4 right-4 w-3 h-3 bg-[#b2d8d7] rounded-full animate-pulse"></div>
+                  </div>
+                  <div class="p-6">
+                      <div class="mb-3">
+                          <span class="inline-block px-3 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20">
+                              E-commerce
+                          </span>
+                      </div>
+                      <h4 class="text-lg font-bold text-[#b2d8d7] mb-3 group-hover:text-[#b2d8d7]/90 transition-colors">
+                          Vipabi E-commerce
+                      </h4>
+                      <p class="text-sm text-[#b2d8d7]/70 mb-4 line-clamp-3">
+                          Plataforma de e-commerce moderna con Astro y React
+                      </p>
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs text-[#b2d8d7]/50">Astro • React • TypeScript</span>
+                          <div class="flex items-center text-sm text-[#b2d8d7] group-hover:translate-x-1 transition-transform">
+                              Ver más
+                              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Proyecto 3 -->
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(5)">
+                  <div class="relative overflow-hidden">
+                      <img src="img/habilidades/5.png" 
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Sistema Financiero">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div class="absolute top-4 right-4 w-3 h-3 bg-[#b2d8d7] rounded-full animate-pulse"></div>
+                  </div>
+                  <div class="p-6">
+                      <div class="mb-3">
+                          <span class="inline-block px-3 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20">
+                              Full Stack
+                          </span>
+                      </div>
+                      <h4 class="text-lg font-bold text-[#b2d8d7] mb-3 group-hover:text-[#b2d8d7]/90 transition-colors">
+                          Sistema de Gestión Financiera
+                      </h4>
+                      <p class="text-sm text-[#b2d8d7]/70 mb-4 line-clamp-3">
+                          Sistema completo de reportes financieros con dashboard interactivo
+                      </p>
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs text-[#b2d8d7]/50">React • Node.js • PostgreSQL</span>
+                          <div class="flex items-center text-sm text-[#b2d8d7] group-hover:translate-x-1 transition-transform">
+                              Ver más
+                              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Más proyectos -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(3)">
+                  <div class="relative overflow-hidden h-32">
+                      <img src="img/habilidades/3.png" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Sistema Redil">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  <div class="p-4">
+                      <span class="inline-block px-2 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20 mb-2">
+                          Sistema
+                      </span>
+                      <h4 class="text-md font-bold text-[#b2d8d7] mb-2">Sistema Redil</h4>
+                      <p class="text-xs text-[#b2d8d7]/70">Implementación y documentación de sistema interno</p>
+                  </div>
+              </div>
+
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(4)">
+                  <div class="relative overflow-hidden h-32">
+                      <img src="img/habilidades/4.png" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Iglesia Visión de Fe">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  <div class="p-4">
+                      <span class="inline-block px-2 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20 mb-2">
+                          WordPress
+                      </span>
+                      <h4 class="text-md font-bold text-[#b2d8d7] mb-2">Iglesia Visión de Fe</h4>
+                      <p class="text-xs text-[#b2d8d7]/70">Gestión y rediseño completo en WordPress</p>
+                  </div>
+              </div>
+
+              <div class="project-card group rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 cursor-pointer"
+                    onclick="openModal(6)">
+                  <div class="relative overflow-hidden h-32">
+                      <img src="img/habilidades/6.png" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                            alt="Sincro Plus">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  <div class="p-4">
+                      <span class="inline-block px-2 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20 mb-2">
+                          En desarrollo
+                      </span>
+                      <h4 class="text-md font-bold text-[#b2d8d7] mb-2">Sincro+</h4>
+                      <p class="text-xs text-[#b2d8d7]/70">Plataforma integral para administración de iglesias</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Modal mejorado -->
+    <div id="modal" class="fixed inset-0 modal-backdrop backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500 z-50">
+        <div class="bg-[#14141c] border border-[#b2d8d7]/20 rounded-3xl shadow-2xl max-w-5xl w-full mx-4 overflow-hidden flex flex-col lg:flex-row scale-90 transition-all duration-500 max-h-[90vh]">
+            
+            <div class="lg:w-2/3 w-full bg-black/20 backdrop-blur-sm flex-1 overflow-y-auto">
+                <div id="imageContainer" class="space-y-1">
+                    <!-- Las imágenes se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+            
+            <div class="p-8 lg:w-1/3 w-full text-[#b2d8d7] flex flex-col relative overflow-y-auto">
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 w-8 h-8 bg-[#b2d8d7]/10 hover:bg-[#b2d8d7]/20 rounded-full flex items-center justify-center transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <div class="flex-grow">
+                    <div class="mb-4">
+                        <span id="modalCategory" class="inline-block px-3 py-1 text-xs font-medium text-[#b2d8d7] bg-[#b2d8d7]/10 rounded-full border border-[#b2d8d7]/20">
+                            Frontend
+                        </span>
+                    </div>
+                    
+                    <h4 id="modalTitle" class="text-2xl font-bold mb-4 leading-tight">Título del Proyecto</h4>
+                    
+                    <div class="space-y-4">
+                        <p id="modalDesc" class="text-sm leading-relaxed text-[#b2d8d7]/80">
+                            Descripción del proyecto...
+                        </p>
+                        
+                        <div class="border-t border-[#b2d8d7]/20 pt-4">
+                            <h5 class="text-sm font-semibold mb-2">Tecnologías utilizadas:</h5>
+                            <div id="modalTech" class="flex flex-wrap gap-2">
+                                <!-- Se llenarán dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex gap-3">
+                    <button class="modal-project-button flex-1 px-4 py-3 bg-[#779c9c] text-[#14141c] rounded-xl hover:bg-[#b2d8d7] transition-colors duration-300 font-medium">
+                        Ver proyecto
+                    </button>
+                    <button onclick="closeModal()"
+                        class="px-4 py-3 border border-[#b2d8d7]/30 text-[#b2d8d7] rounded-xl hover:bg-[#b2d8d7]/10 transition-colors duration-300">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servicios mejorados -->
+    <section id="servicios" class="py-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-20 left-10 w-72 h-72 bg-[#b2d8d7] rounded-full blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#475b5d] rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-4 mb-4">
+                <div class="w-12 h-[2px] bg-gradient-to-r from-transparent to-[#b2d8d7]"></div>
+                <h3 class="text-4xl md:text-5xl font-bold text-[#b2d8d7] tracking-tight">
+                    Servicios
+                </h3>
+                <div class="w-12 h-[2px] bg-gradient-to-l from-transparent to-[#b2d8d7]"></div>
+            </div>
+            <p class="text-[#b2d8d7]/60 text-lg max-w-2xl mx-auto">
+              Soluciones digitales personalizadas que impulsan tu presencia online y optimizan tus procesos
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            <!-- Desarrollo Web -->
+            <div class="service-card group p-8 rounded-2xl shadow-2xl hover:shadow-[#b2d8d7]/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-[#b2d8d7]/10 hover:border-[#b2d8d7]/30">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-gradient-to-br from-[#b2d8d7] to-[#7fb3b2] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <i data-lucide="monitor" class="w-8 h-8 text-slate-900"></i>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-bold text-[#b2d8d7] mb-3 group-hover:text-white transition-colors duration-300">
+                Desarrollo Web
+              </h3>
+              
+              <p class="text-[#b2d8d7]/80 mb-6 text-base leading-relaxed">
+                Sitios web modernos, responsivos y optimizados que reflejan tu identidad de marca y convierten visitantes en clientes.
+              </p>
+              
+              <ul class="text-left space-y-2 text-sm text-[#b2d8d7]/70">
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Diseño responsive y moderno
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Optimización SEO incluida
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Carga rápida y segura
+                </li>
+              </ul>
+            </div>
+      
+            <!-- Sistemas Web -->
+            <div class="service-card group p-8 rounded-2xl shadow-2xl hover:shadow-[#b2d8d7]/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-[#b2d8d7]/10 hover:border-[#b2d8d7]/30">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-gradient-to-br from-[#b2d8d7] to-[#7fb3b2] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <i data-lucide="settings" class="w-8 h-8 text-slate-900"></i>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-bold text-[#b2d8d7] mb-3 group-hover:text-white transition-colors duration-300">
+                Sistemas Web
+              </h3>
+              
+              <p class="text-[#b2d8d7]/80 mb-6 text-base leading-relaxed">
+                Aplicaciones web personalizadas que automatizan procesos, mejoran la productividad y facilitan la gestión de tu negocio.
+              </p>
+              
+              <ul class="text-left space-y-2 text-sm text-[#b2d8d7]/70">
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Automatización de procesos
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Gestión de datos eficiente
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Integración con APIs
+                </li>
+              </ul>
+            </div>
+      
+            <!-- Landing Pages -->
+            <div class="service-card group p-8 rounded-2xl shadow-2xl hover:shadow-[#b2d8d7]/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-[#b2d8d7]/10 hover:border-[#b2d8d7]/30">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-gradient-to-br from-[#b2d8d7] to-[#7fb3b2] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <i data-lucide="zap" class="w-8 h-8 text-slate-900"></i>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-bold text-[#b2d8d7] mb-3 group-hover:text-white transition-colors duration-300">
+                Landing Pages
+              </h3>
+              
+              <p class="text-[#b2d8d7]/80 mb-6 text-base leading-relaxed">
+                Páginas de alta conversión diseñadas específicamente para campañas, lanzamientos de productos o generación de leads.
+              </p>
+              
+              <ul class="text-left space-y-2 text-sm text-[#b2d8d7]/70">
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Diseño orientado a conversión
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Formularios optimizados
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="check" class="w-4 h-4 text-[#b2d8d7] mr-2 flex-shrink-0"></i>
+                  Análisis de rendimiento
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="text-center">
+            <p class="text-lg text-[#b2d8d7]/80 mb-6">
+              ¿Listo para llevar tu proyecto al siguiente nivel?
+            </p>
+            <a href="#contacto" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#b2d8d7] to-[#7fb3b2] text-slate-900 font-semibold rounded-full hover:shadow-lg hover:shadow-[#b2d8d7]/30 transition-all duration-300 hover:scale-105">
+              Conversemos sobre tu proyecto
+              <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+            </a>
+          </div>
+        </div>
+    </section>
+
+    <!-- Contacto mejorado -->
+    <section id="contacto" class="py-20 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-[#b2d8d7] to-[#475b5d]"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 rounded-full bg-gradient-to-br from-[#475b5d] to-[#b2d8d7]"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-br from-[#b2d8d7] to-[#475b5d]"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-4 mb-4">
+              <div class="w-12 h-[2px] bg-gradient-to-r from-transparent to-[#b2d8d7]"></div>
+              <h3 class="text-4xl md:text-5xl font-bold text-[#b2d8d7] tracking-tight">
+                  Contáctame
+              </h3>
+              <div class="w-12 h-[2px] bg-gradient-to-l from-transparent to-[#b2d8d7]"></div>
+          </div>
+          <p class="text-[#b2d8d7]/60 text-lg max-w-2xl mx-auto">
+            ¿Tienes un proyecto en mente? Me encantaría escuchar tus ideas y ayudarte a hacerlas realidad.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <!-- Información de contacto -->
+          <div class="space-y-8">
+            <div>
+              <h4 class="text-2xl font-bold text-[#b2d8d7] mb-6">Trabajemos juntos</h4>
+              <p class="text-[#b2d8d7]/80 text-lg leading-relaxed mb-8">
+                Estoy siempre abierto a discutir nuevos proyectos, oportunidades creativas o simplemente charlar sobre tecnología y desarrollo web.
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-[#b2d8d7]/10 to-[#779c9c]/5 rounded-xl border border-[#b2d8d7]/20">
+                <div class="p-3 bg-[#b2d8d7]/20 rounded-lg">
+                  <svg class="w-6 h-6 text-[#b2d8d7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-[#b2d8d7] font-semibold">Email</p>
+                  <a href="mailto:emanuel@example.com" class="text-[#b2d8d7]/70 hover:text-[#b2d8d7] transition-colors">manuchoquepuma6@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-[#b2d8d7]/10 to-[#779c9c]/5 rounded-xl border border-[#b2d8d7]/20">
+                <div class="p-3 bg-[#b2d8d7]/20 rounded-lg">
+                  <svg class="w-6 h-6 text-[#b2d8d7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-[#b2d8d7] font-semibold">Teléfono</p>
+                  <a href="tel:+51987654321" class="text-[#b2d8d7]/70 hover:text-[#b2d8d7] transition-colors">+51 951 160 567</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-[#b2d8d7]/10 to-[#779c9c]/5 rounded-xl border border-[#b2d8d7]/20">
+                <div class="p-3 bg-[#b2d8d7]/20 rounded-lg">
+                  <svg class="w-6 h-6 text-[#b2d8d7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-[#b2d8d7] font-semibold">Ubicación</p>
+                  <p class="text-[#b2d8d7]/70">Arequipa, Perú</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="pt-6 border-t border-[#b2d8d7]/20">
+              <p class="text-[#b2d8d7] font-semibold mb-4">Sígueme en redes</p>
+              <div class="flex gap-4">
+                <a href="#" class="p-3 bg-[#b2d8d7]/10 hover:bg-[#b2d8d7]/20 rounded-lg transition-colors group">
+                  <svg class="w-5 h-5 text-[#b2d8d7] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  </svg>
+                </a>
+                <a href="#" class="p-3 bg-[#b2d8d7]/10 hover:bg-[#b2d8d7]/20 rounded-lg transition-colors group">
+                  <svg class="w-5 h-5 text-[#b2d8d7] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+                <a href="#" class="p-3 bg-[#b2d8d7]/10 hover:bg-[#b2d8d7]/20 rounded-lg transition-colors group">
+                  <svg class="w-5 h-5 text-[#b2d8d7] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario funcional con Formspree -->
+          <div class="contact-form rounded-2xl shadow-xl p-8 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#b2d8d7]/5 to-[#475b5d]/5 rounded-2xl"></div>
+            
+            <form action="https://formspree.io/f/xrbldyeq" method="POST" class="relative z-10 space-y-6" id="contactForm">
+              <div class="group">
+                <label class="block text-sm font-semibold text-[#475b5d] mb-2">
+                  Tu nombre *
+                </label>
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Escribe tu nombre completo" 
+                  required
+                  class="form-input w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#b2d8d7] focus:ring-4 focus:ring-[#b2d8d7]/20 transition-all duration-300 outline-none group-hover:border-[#b2d8d7]/50"
+                />
+              </div>
+
+              <div class="group">
+                <label class="block text-sm font-semibold text-[#475b5d] mb-2">
+                  Tu correo electrónico *
+                </label>
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="tu@email.com" 
+                  required
+                  class="form-input w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#b2d8d7] focus:ring-4 focus:ring-[#b2d8d7]/20 transition-all duration-300 outline-none group-hover:border-[#b2d8d7]/50"
+                />
+              </div>
+
+              <div class="group">
+                <label class="block text-sm font-semibold text-[#475b5d] mb-2">
+                  Asunto
+                </label>
+                <input 
+                  type="text" 
+                  name="subject"
+                  placeholder="¿De qué quieres hablar?" 
+                  class="form-input w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#b2d8d7] focus:ring-4 focus:ring-[#b2d8d7]/20 transition-all duration-300 outline-none group-hover:border-[#b2d8d7]/50"
+                />
+              </div>
+
+              <div class="group">
+                <label class="block text-sm font-semibold text-[#475b5d] mb-2">
+                  Tu mensaje *
+                </label>
+                <textarea 
+                  name="message"
+                  placeholder="Cuéntame sobre tu proyecto, ideas o cualquier consulta que tengas..." 
+                  rows="5"
+                  required
+                  class="form-input w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#b2d8d7] focus:ring-4 focus:ring-[#b2d8d7]/20 transition-all duration-300 outline-none resize-none group-hover:border-[#b2d8d7]/50"
+                ></textarea>
+              </div>
+
+              <!-- Campo oculto para identificar formulario -->
+              <input type="hidden" name="_subject" value="Nuevo mensaje desde EmaDev Portfolio">
+              <input type="hidden" name="_next" value="https://tu-sitio.com/gracias">
+
+              <button 
+                type="submit"
+                id="submitBtn"
+                class="w-full bg-gradient-to-r from-[#475b5d] to-[#b2d8d7] text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-[#b2d8d7]/25 transform hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span class="relative z-10 flex items-center justify-center gap-2" id="btnText">
+                  <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                  </svg>
+                  Enviar mensaje
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#b2d8d7] to-[#475b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </form>
+
+            <!-- Mensaje de estado -->
+            <div id="formMessage" class="mt-4 p-4 rounded-xl hidden">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span id="messageText"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#475b5d]/20 to-[#b2d8d7]/10 backdrop-blur-sm border-t border-[#b2d8d7]/20 text-center py-8 text-[#b2d8d7]/70">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex items-center">
+            <h1 class="font-bold text-2xl logo-gradient tracking-tight">
+                EmaDev<span class="text-[var(--accent-color)]">.</span>
+            </h1>
+          </div>
+          <div class="text-sm">
+            © 2025 Emanuel Dev. Todos los derechos reservados.
+          </div>
+          <div class="flex gap-4">
+            <a href="#inicio" class="hover:text-[#b2d8d7] transition-colors">Inicio</a>
+            <a href="#proyectos" class="hover:text-[#b2d8d7] transition-colors">Proyectos</a>
+            <a href="#contacto" class="hover:text-[#b2d8d7] transition-colors">Contacto</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script>
+      // Datos de los proyectos
+      const projectsData = {
+          1: {
+              title: "Comunidad Cristiana Cristo Vencedor",
+              category: "Frontend",
+              description: "Desarrollé el sitio web completo para la Comunidad Cristiana Cristo Vencedor en Arequipa, Perú. El proyecto incluyó el diseño visual, la estructura de navegación y la implementación de funcionalidades interactivas utilizando HTML5, CSS3 y JavaScript vanilla. Se enfocó en crear una experiencia de usuario intuitiva y accesible para la comunidad religiosa.",
+              technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+              hasLink: false,
+              showButton: false,
+              projectUrl: "https://tu-enlace-aqui.com",
+              images: [
+                  "img/habilidades/ccc/1.png",    
+                  "img/habilidades/ccc/2.png",
+                  "img/habilidades/ccc/3.png",
+                  "img/habilidades/ccc/4.png",
+                  "img/habilidades/ccc/5.jpeg"
+              ] 
+          },
+          2: {
+            title: "Vipabi E-commerce",
+            category: "E-commerce",
+            description: "Desarrollé una plataforma de e-commerce moderna para Vipabi utilizando tecnologías de vanguardia. El proyecto se construyó con Astro como framework principal, React para componentes interactivos, y se implementaron funcionalidades avanzadas de comercio electrónico incluyendo carrito de compras, sistema de pagos y gestión de inventario.",
+            technologies: ["Astro", "React", "TypeScript", "Tailwind CSS"],
+            hasLink: false,
+            showButton: false,
+            projectUrl: "https://tu-enlace-aqui.com",
+            images: [
+            "img/habilidades/vipabi/1.png",
+            "img/habilidades/vipabi/2.png",
+            "img/habilidades/vipabi/3.png",
+            "img/habilidades/vipabi/4.png"
+            ]
+          },
+          3: {
+              title: "Sistema Redil",
+              category: "Sistema",
+              description: "Participé como implementador y documentador en el desarrollo del sistema interno Redil. Mi rol incluyó la configuración del sistema, la creación de documentación técnica completa y guías de usuario detalladas. También desarrollé manuales de capacitación para facilitar la adopción del sistema por parte del equipo.",
+              technologies: ["Documentación", "Sistemas", "Capacitación", "Gestión"],
+              hasLink: false,
+              showButton: false,
+              privateNote: "Sistema interno confidencial",
+              images: ["img/habilidades/3.png",
+                  "img/habilidades/redil/1.png",
+                  "img/habilidades/redil/2.png",
+                  "img/habilidades/redil/3.png",
+                  "img/habilidades/redil/4.png",
+                  "img/habilidades/redil/5.png" 
+              ]
+          },
+          4: {
+              title: "Iglesia Visión de Fe",
+              category: "WordPress", 
+              description: "Gestioné y rediseñé completamente el sitio web utilizando WordPress y DIVI. Remodelé la estructura general, creé páginas y secciones nuevas, mantuve actualizado el contenido con eventos y noticias regulares, y optimicé la experiencia móvil para mejorar la presencia digital de la comunidad.",
+              technologies: ["WordPress", "Divi"],
+              hasLink: true,
+              projectUrl: "https://iglesiavisiondefe.org",
+              images: ["img/habilidades/paginavf/1.png",
+                  "img/habilidades/paginavf/2.png",
+                  "img/habilidades/paginavf/3.png",
+                  "img/habilidades/paginavf/4.png",
+                  "img/habilidades/paginavf/5.png"
+              ]
+          },
+          5: {
+            title: "Sistema de Reportes Financieros",
+            category: "Full Stack",
+            description: "Desarrollé integralmente una aplicación web para administración de donaciones con dashboard interactivo, módulos administrativos, sistema de notificaciones para aprobaciones pendientes, gestión de usuarios y reportes financieros automatizados. Incluye autenticación segura con recuperación de contraseña y alertas en tiempo real.",
+            technologies: ["HTML", "Tailwind", "React", "Next.js", "Node.js", "Sequelize", "PostgreSQL", "API Rest"],
+            hasLink: false,
+            showButton: false,
+            privateNote: "Demo disponible bajo solicitud",
+            images: ["img/habilidades/sistemreport/1.png",
+                "img/habilidades/sistemreport/2.png",
+                "img/habilidades/sistemreport/3.png",
+                "img/habilidades/sistemreport/4.png"
+            ]
+        },
+        6: {
+          title: "Sincro+ Plataforma",
+          category: "En desarrollo",
+          description: "Sistema web en desarrollo para administración integral de iglesias con autenticación completa, gestión de eventos y anuncios, módulo de donaciones y grupos de conexión. Incluye panel administrativo, sistema de notificaciones inteligentes por roles de servicio y sincronización automática para optimizar la participación comunitaria.",
+          technologies: ["HTML", "Tailwind", "React", "Next.js", "Node.js", "Sequelize", "PostgreSQL", "API Rest"],
+          hasLink: false,
+          showButton: false,
+          privateNote: "Proyecto en desarrollo",
+          images: ["img/habilidades/sincro/1.png",
+              "img/habilidades/sincro/2.png",
+              "img/habilidades/sincro/3.png"
+          ]
+      }
+      };
+      
+      function openModal(projectId) {
+          const project = projectsData[projectId];
+          
+          document.getElementById('modalTitle').textContent = project.title;
+          document.getElementById('modalCategory').textContent = project.category;
+          document.getElementById('modalDesc').textContent = project.description;
+          
+          const imageContainer = document.getElementById('imageContainer');
+          imageContainer.innerHTML = '';
+          
+          project.images.forEach((imageSrc, index) => {
+              const imageDiv = document.createElement('div');
+              imageDiv.className = 'w-full';
+              imageDiv.innerHTML = `
+                  <img src="${imageSrc}" 
+                       alt="Imagen ${index + 1} del proyecto" 
+                       class="w-full h-auto object-cover">
+              `;
+              imageContainer.appendChild(imageDiv);
+          });
+          
+          const techContainer = document.getElementById('modalTech');
+          techContainer.innerHTML = '';
+          project.technologies.forEach(tech => {
+              const span = document.createElement('span');
+              span.className = 'px-2 py-1 text-xs bg-[#b2d8d7]/10 text-[#b2d8d7] rounded border border-[#b2d8d7]/20';
+              span.textContent = tech;
+              techContainer.appendChild(span);
+          });
+          
+          const projectButton = document.querySelector('.modal-project-button');
+          const buttonContainer = projectButton.parentNode;
+          
+          const existingNote = document.querySelector('.private-note');
+          if (existingNote) existingNote.remove();
+          
+          if (project.hasLink) {
+              projectButton.style.display = 'block';
+              projectButton.textContent = 'Ver Proyecto';
+              projectButton.onclick = () => window.open(project.projectUrl, '_blank');
+              projectButton.className = 'modal-project-button flex-1 px-4 py-3 bg-[#779c9c] text-[#14141c] rounded-xl hover:bg-[#b2d8d7] transition-colors duration-300 font-medium cursor-pointer';
+          } else if (project.showButton) {
+              projectButton.style.display = 'block';
+              projectButton.textContent = 'Ver Capturas';
+              projectButton.onclick = () => scrollToTop();
+              projectButton.className = 'modal-project-button flex-1 px-4 py-3 bg-[#b2d8d7]/20 text-[#b2d8d7] border border-[#b2d8d7]/30 rounded-xl hover:bg-[#b2d8d7]/30 transition-colors duration-300 font-medium cursor-pointer';
+          } else {
+              projectButton.style.display = 'none';
+          }
+          
+          if (project.privateNote) {
+              const noteDiv = document.createElement('div');
+              noteDiv.className = 'private-note text-xs text-[#b2d8d7]/60 mt-2 text-center';
+              noteDiv.innerHTML = `💼 ${project.privateNote}`;
+              buttonContainer.appendChild(noteDiv);
+          }
+          
+          const modal = document.getElementById('modal');
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+          modal.querySelector('.rounded-3xl').classList.remove('scale-90');
+          modal.querySelector('.rounded-3xl').classList.add('scale-100');
+      }
+      
+      function scrollToTop() {
+          const imageContainer = document.getElementById('imageContainer');
+          imageContainer.scrollTop = 0;
+      }
+      
+      function closeModal() {
+          const existingNote = document.querySelector('.private-note');
+          if (existingNote) existingNote.remove();
+          
+          const modal = document.getElementById('modal');
+          modal.classList.add('opacity-0', 'pointer-events-none');
+          modal.querySelector('.rounded-3xl').classList.remove('scale-100');
+          modal.querySelector('.rounded-3xl').classList.add('scale-90');
+      }
+      
+      document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+              closeModal();
+          }
+      });
+      
+      document.getElementById('modal').addEventListener('click', function(e) {
+          if (e.target === this) {
+              closeModal();
+          }
+      });
+
+      // Mobile menu functions mejoradas
+      function toggleMobileMenu() {
+          const mobileMenu = document.getElementById('mobileMenu');
+          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+          
+          mobileMenu.classList.toggle('active');
+          mobileMenuBtn.classList.toggle('active');
+          
+          // Prevenir scroll del body cuando el menú está abierto
+          if (mobileMenu.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+          } else {
+              document.body.style.overflow = '';
+          }
+      }
+      
+      function closeMobileMenu() {
+          const mobileMenu = document.getElementById('mobileMenu');
+          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+          
+          mobileMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+          document.body.style.overflow = '';
+      }
+      
+      // Cerrar menú móvil al hacer clic fuera o cambiar tamaño de ventana
+      document.addEventListener('click', function(event) {
+          const mobileMenu = document.getElementById('mobileMenu');
+          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+          
+          if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+              closeMobileMenu();
+          }
+      });
+      
+      // Cerrar menú al cambiar orientación o redimensionar
+      window.addEventListener('resize', function() {
+          if (window.innerWidth >= 1025) {
+              closeMobileMenu();
+          }
+      });
+      
+      // Cerrar menú con ESC
+      document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+              closeMobileMenu();
+          }
+      });
+      
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+              }
+          });
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+          const header = document.getElementById('header');
+          if (window.scrollY > 100) {
+              header.classList.add('header-scrolled');
+          } else {
+              header.classList.remove('header-scrolled');
+          }
+      });
+
+      // Animations on load
+      window.addEventListener('load', function() {
+          const elements = document.querySelectorAll('.fade-in-up');
+          elements.forEach((el, index) => {
+              setTimeout(() => {
+                  el.style.opacity = '1';
+              }, index * 200);
+          });
+      });
+      
+      // Parallax effect
+      window.addEventListener('scroll', function() {
+          const scrolled = window.pageYOffset;
+          const orbs = document.querySelectorAll('.bg-orb');
+          
+          orbs.forEach((orb, index) => {
+              const speed = 0.5 + (index * 0.2);
+              orb.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+          });
+      });
+
+      // Manejo del formulario de contacto
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const formMessage = document.getElementById('formMessage');
+        const messageText = document.getElementById('messageText');
+        
+        // Cambiar estado del botón
+        submitBtn.disabled = true;
+        btnText.innerHTML = `
+            <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+        `;
+        
+        // Enviar formulario
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Éxito
+                formMessage.className = 'mt-4 p-4 rounded-xl bg-green-100 border border-green-300 text-green-800';
+                messageText.textContent = '¡Mensaje enviado correctamente! Te responderé pronto.';
+                form.reset();
+            } else {
+                throw new Error('Error en el envío');
+            }
+        })
+        .catch(error => {
+            // Error
+            formMessage.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+            messageText.textContent = 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.';
+        })
+        .finally(() => {
+            // Restaurar botón
+            submitBtn.disabled = false;
+            btnText.innerHTML = `
+                <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                Enviar mensaje
+            `;
+            formMessage.classList.remove('hidden');
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+    });
+    </script>
+  </body>
+</html>
