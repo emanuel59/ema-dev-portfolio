@@ -338,11 +338,11 @@
       /* Responsive breakpoints mejorados */
       @media (max-width: 1024px) {
           .desktop-nav {
-              display: none;
+              display: none !important;
           }
           
           .mobile-menu-btn {
-              display: flex;
+              display: flex !important;
           }
       }
       
