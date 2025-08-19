@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Emanuel Dev - Desarrollo Web que Impulsa tu Negocio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#b2d8d7',
+                        secondary: '#779c9c', 
+                        dark: '#475b5d',
+                        accent: '#607173',
+                        background: '#14141c'
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #b2d8d7;
+            --secondary: #779c9c;
+            --dark: #475b5d;
+            --accent: #607173;
+            --background: #14141c;
+        }
+
+        body {
+            background: linear-gradient(135deg, #14141c 0%, #1a1a24 100%);
+            min-height: 100vh;
+        }
+
+        /* Animaciones personalizadas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(178, 216, 215, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(178, 216, 215, 0.6); }
+        }
+
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .bounce-gentle {
+            animation: bounce-gentle 2s ease-in-out infinite;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Efectos hover suaves */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, rgba(178, 216, 215, 0.05), rgba(119, 156, 156, 0.02));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(178, 216, 215, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(178, 216, 215, 0.15);
+            border-color: rgba(178, 216, 215, 0.3);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #20B358 100%);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--background);
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(178, 216, 215, 0.4);
+        }
+
+        /* Partículas flotantes */
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Header efectos */
+        .header-bg {
+            background: rgba(20, 20, 28, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(178, 216, 215, 0.1);
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: rgba(178, 216, 215, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive mejoras */
+        @media (max-width: 768px) {
+            .service-card {
+                margin-bottom: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-100 font-sans overflow-x-hidden">
+    
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 header-bg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+            <div class="flex items-center">
+                <h1 class="font-bold text-2xl text-primary tracking-tight">
+                    EmaDev<span class="text-secondary">.</span>
+                </h1>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-2">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#proceso" class="nav-link">Proceso</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+            
+            <a href="https://wa.me/+51951160567" 
+               class="whatsapp-btn text-white px-4 py-2 rounded-full font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                </svg>
+                WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Partículas flotantes -->
+    <div class="bg-orb w-32 h-32 bg-primary/20 top-20 left-10 float-animation"></div>
+    <div class="bg-orb w-24 h-24 bg-secondary/15 bottom-20 right-20 float-animation" style="animation-delay: -2s;"></div>
+    <div class="bg-orb w-40 h-40 bg-dark/10 top-1/3 right-1/4 float-animation" style="animation-delay: -4s;"></div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 min-h-screen flex items-center relative overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            
+            <!-- Problemas que resuelves -->
+            <div class="fade-in-up mb-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-sm mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.268 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                    ¿Tu competencia te está ganando clientes online?
+                </div>
+            </div>
+
+            <!-- Título principal -->
+            <div class="fade-in-up delay-200">
+                <h1 class="hero-title text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    <span class="text-primary">Tu negocio merece</span><br>
+                    <span class="bg-gradient-to-r from-primary via-secondary to-dark text-transparent bg-clip-text">
+                        un sitio web que venda
+                    </span>
+                </h1>
+            </div>
+
+            <!-- Subtítulo -->
+            <div class="fade-in-up delay-300">
+                <p class="text-xl md:text-2xl text-primary/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Desarrollo sitios que convierten visitantes en clientes reales.
+                    <span class="text-secondary font-semibold">No solo bonitos, sino que funcionan.</span>
+                </p>
+            </div>
+
+            <!-- Beneficios rápidos -->
+            <div class="fade-in-up delay-400 grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+                <div class="flex items-center justify-center gap-3 text-primary/70">
+                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Más clientes cada semana</span>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-primary/70">
+                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Ventas mientras duermes</span>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-primary/70">
+                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Competencia atrás</span>
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="fade-in-up delay-500 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#servicios" class="primary-btn font-semibold px-8 py-4 rounded-full text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Ver cómo funciona
+                </a>
+                
+                <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20quiero%20una%20consulta%20gratuita%20sobre%20mi%20sitio%20web" 
+                   class="whatsapp-btn text-white font-semibold px-8 py-4 rounded-full text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                    </svg>
+                    Consulta GRATIS
+                </a>
+            </div>
+
+            <!-- Social proof -->
+            <div class="fade-in-up delay-600 mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-primary/60">
+                <div class="flex items-center gap-2">
+                    <div class="flex">
+                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <span class="text-sm">4+ proyectos exitosos</span>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-primary/20"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-sm">100% clientes satisfechos</span>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-primary/20"></div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-sm">Desarrollador en Arequipa</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flecha animada -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bounce-gentle">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Sección "¿Te suena familiar?" -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
+                    ¿Te suena familiar?
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="fade-in-up delay-100 p-6 bg-red-500/5 border border-red-500/20 rounded-2xl">
+                    <div class="text-red-400 text-4xl mb-4">😤</div>
+                    <h3 class="text-lg font-semibold text-red-400 mb-3">Tu sitio parece de 2010</h3>
+                    <p class="text-primary/70 text-sm">Los clientes entran y se van inmediatamente porque no confían en tu imagen</p>
+                </div>
+
+                <div class="fade-in-up delay-200 p-6 bg-red-500/5 border border-red-500/20 rounded-2xl">
+                    <div class="text-red-400 text-4xl mb-4">😔</div>
+                    <h3 class="text-lg font-semibold text-red-400 mb-3">Pierdes ventas diarias</h3>
+                    <p class="text-primary/70 text-sm">Tu competencia se lleva clientes que podrían ser tuyos</p>
+                </div>
+
+                <div class="fade-in-up delay-300 p-6 bg-red-500/5 border border-red-500/20 rounded-2xl">
+                    <div class="text-red-400 text-4xl mb-4">⏰</div>
+                    <h3 class="text-lg font-semibold text-red-400 mb-3">Todo manual y lento</h3>
+                    <p class="text-primary/70 text-sm">Gastas horas en tareas que podrían automatizarse</p>
+                </div>
+            </div>
+
+            <div class="fade-in-up delay-400 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-primary mb-4">
+                    ✅ Yo soluciono exactamente eso
+                </h3>
+                <p class="text-primary/80 text-lg">
+                    Desarrollo sitios web que no solo se ven profesionales, sino que <span class="font-semibold text-secondary">realmente traen clientes y automatizan tu negocio</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios principales -->
+    <section id="servicios" class="py-20 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        Servicios que <span class="text-secondary">impulsan tu negocio</span>
+                    </h2>
+                    <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                        No solo desarrollo sitios web, creo herramientas digitales que trabajan 24/7 para hacer crecer tu negocio
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                
+                <!-- Sitios Web -->
+                <div class="service-card fade-in-up delay-100 p-8 rounded-2xl group">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex p-4 bg-gradient-to-br from-primary to-secondary rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Sitios Web que Venden</h3>
+                        <p class="text-primary/60 italic">No solo un sitio bonito, sino una máquina de generar clientes</p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Diseño que inspira confianza desde el primer segundo</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Carga súper rápida (nadie espera más de 3 segundos)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Se ve perfecto en móviles y tablets</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Optimizado para aparecer en Google</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-primary/5 border border-primary/20 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-primary/70 mb-2"><strong>Ideal para:</strong></p>
+                        <p class="text-sm text-secondary">Restaurantes, tiendas, profesionales, empresas, iglesias</p>
+                    </div>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20un%20sitio%20web%20empresarial" 
+                       class="whatsapp-btn w-full text-center text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        💼 Sitio web empresarial
+                    </a>
+                </div>
+
+                <!-- Sistemas Web -->
+                <div class="service-card fade-in-up delay-200 p-8 rounded-2xl group">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex p-4 bg-gradient-to-br from-secondary to-dark rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Sistemas que Automatizan</h3>
+                        <p class="text-primary/60 italic">Deja que la tecnología haga el trabajo pesado por ti</p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Reportes automáticos que se generan solos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Control total de tu información en un solo lugar</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Ahorra horas de trabajo manual cada semana</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Dashboards intuitivos y fáciles de usar</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-secondary/5 border border-secondary/20 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-primary/70 mb-2"><strong>Perfecto para:</strong></p>
+                        <p class="text-sm text-secondary">Empresas que quieren crecer sin complicaciones</p>
+                    </div>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20un%20sistema%20personalizado" 
+                       class="whatsapp-btn w-full text-center text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        🚀 Sistema personalizado
+                    </a>
+                </div>
+
+                <!-- Landing Pages -->
+                <div class="service-card fade-in-up delay-300 p-8 rounded-2xl group">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex p-4 bg-gradient-to-br from-dark to-primary rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Landing Pages que Convierten</h3>
+                        <p class="text-primary/60 italic">Una página, un objetivo: conseguir más clientes</p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Diseñada para que la gente actúe inmediatamente</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Formularios que realmente se llenan</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Perfecta para campañas de publicidad</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-primary/80">Tiempo de carga ultra rápido</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-dark/5 border border-dark/20 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-primary/70 mb-2"><strong>Ideal para:</strong></p>
+                        <p class="text-sm text-secondary">Lanzamientos, promociones, captación de leads</p>
+                    </div>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20una%20landing%20page" 
+                       class="whatsapp-btn w-full text-center text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        🎯 Landing page
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA central -->
+            <div class="fade-in-up delay-400 text-center bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-primary mb-4">
+                    ¿No sabes qué necesitas exactamente?
+                </h3>
+                <p class="text-primary/80 mb-6 max-w-2xl mx-auto">
+                    No te preocupes. Conversemos sobre tu negocio y te ayudo a identificar la solución perfecta
+                </p>
+                <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20no%20sé%20qué%20necesito%20pero%20quiero%20mejorar%20mi%20presencia%20online" 
+                   class="primary-btn font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Consulta gratuita sin compromiso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirme -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        ¿Por qué <span class="text-secondary">elegirme?</span>
+                    </h2>
+                    <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                        No soy una agencia gigante. Soy un desarrollador que entiende tu negocio y habla tu idioma
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in-up delay-100 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">🏆 Desarrollador local en Arequipa</h3>
+                    <p class="text-primary/70">Nos entendemos, hablamos el mismo idioma y conozco el mercado peruano</p>
+                </div>
+
+                <div class="fade-in-up delay-200 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-dark rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">💬 Comunicación directa</h3>
+                    <p class="text-primary/70">Sin intermediarios, sin burocracia. Hablas conmigo desde el día uno</p>
+                </div>
+
+                <div class="fade-in-up delay-300 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-dark to-primary rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">⚡ Entrego en tiempo récord</h3>
+                    <p class="text-primary/70">Sitios web en 2-4 semanas. Tu tiempo es valioso y lo respeto</p>
+                </div>
+
+                <div class="fade-in-up delay-400 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">🤝 Te enseño a usar todo</h3>
+                    <p class="text-primary/70">No te dejo solo. Te explico paso a paso cómo manejar tu sitio</p>
+                </div>
+
+                <div class="fade-in-up delay-500 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-dark rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">💰 Precios justos</h3>
+                    <p class="text-primary/70">Calidad profesional a precios que tienen sentido para el mercado peruano</p>
+                </div>
+
+                <div class="fade-in-up delay-600 text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-dark to-primary rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">🛡️ Garantía de satisfacción</h3>
+                    <p class="text-primary/70">Si no te gusta, lo cambiamos hasta que quedes 100% feliz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de trabajo -->
+    <section id="proceso" class="py-20 px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        Proceso <span class="text-secondary">súper simple</span>
+                    </h2>
+                    <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                        Sin complicaciones, sin sorpresas. Así trabajamos juntos paso a paso
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="fade-in-up delay-100 flex flex-col md:flex-row items-center gap-8 p-8 service-card rounded-2xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-2xl font-bold text-background">
+                            1
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-primary">Me escribes por WhatsApp</h3>
+                        </div>
+                        <p class="text-primary/80 text-lg">
+                            Cuéntame sobre tu proyecto, tu negocio y qué necesitas. 
+                            <span class="font-semibold text-secondary">Respondo en menos de 2 horas.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-200 flex flex-col md:flex-row items-center gap-8 p-8 service-card rounded-2xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-dark rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                            2
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-primary">Hablamos de tu proyecto (gratis)</h3>
+                        </div>
+                        <p class="text-primary/80 text-lg">
+                            Conversamos por videollamada o WhatsApp para entender exactamente lo que necesitas. 
+                            <span class="font-semibold text-secondary">Te doy la cotización personalizada.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-300 flex flex-col md:flex-row items-center gap-8 p-8 service-card rounded-2xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-dark to-primary rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-primary">Desarrollo y feedback</h3>
+                        </div>
+                        <p class="text-primary/80 text-lg">
+                            Trabajo en tu proyecto enviándote avances regulares. 
+                            <span class="font-semibold text-secondary">Tu opinión es clave en cada paso.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-400 flex flex-col md:flex-row items-center gap-8 p-8 service-card rounded-2xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-2xl font-bold text-background">
+                            4
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-primary">¡Lanzamiento y capacitación!</h3>
+                        </div>
+                        <p class="text-primary/80 text-lg">
+                            Tu sitio va en vivo y te enseño a manejarlo completamente. 
+                            <span class="font-semibold text-secondary">¡A recibir más clientes!</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA del proceso -->
+            <div class="fade-in-up delay-500 text-center mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-primary mb-4">
+                    ¿Listo para empezar?
+                </h3>
+                <p class="text-primary/80 mb-6">
+                    El primer paso es gratis y sin compromiso. Solo conversamos sobre tu proyecto
+                </p>
+                <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20quiero%20empezar%20mi%20proyecto%20HOY" 
+                   class="whatsapp-btn text-white font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                    </svg>
+                    Empezar mi proyecto HOY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        Lo que dicen <span class="text-secondary">mis clientes</span>
+                    </h2>
+                    <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                        Resultados reales de negocios reales
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="fade-in-up delay-100 service-card p-8 rounded-2xl">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-xl text-background font-bold">
+                            C
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary">Cliente satisfecho</h4>
+                            <p class="text-sm text-primary/60">Comunidad Cristiana</p>
+                        </div>
+                    </div>
+                    <p class="text-primary/80 mb-4 italic">
+                        "Emanuel no solo me hizo el sitio, me explicó todo paso a paso. 
+                        ¡Ahora yo mismo puedo actualizarlo cuando necesite!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-200 service-card p-8 rounded-2xl">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-dark rounded-full flex items-center justify-center text-xl text-white font-bold">
+                            E
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary">Empresario local</h4>
+                            <p class="text-sm text-primary/60">Pequeña empresa</p>
+                        </div>
+                    </div>
+                    <p class="text-primary/80 mb-4 italic">
+                        "En 3 semanas tenía mi sitio listo y funcionando. 
+                        Emanuel cumple lo que promete y me ayudó mucho en el proceso."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgencia sutil -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in-up bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-2xl p-8">
+                <div class="text-4xl mb-4">⏰</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Cada día que pasa sin un buen sitio web...
+                </h2>
+                <p class="text-xl text-primary/80 mb-6">
+                    ...pierdes clientes potenciales que se van con tu competencia. 
+                    <span class="font-semibold text-secondary">¿Hasta cuándo vas a esperar?</span>
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-center mb-8">
+                    <div class="p-4 bg-red-500/5 border border-red-500/20 rounded-xl">
+                        <div class="text-2xl font-bold text-red-400 mb-2">📉</div>
+                        <p class="text-sm text-primary/70">Ventas perdidas diariamente</p>
+                    </div>
+                    <div class="p-4 bg-red-500/5 border border-red-500/20 rounded-xl">
+                        <div class="text-2xl font-bold text-red-400 mb-2">😔</div>
+                        <p class="text-sm text-primary/70">Clientes que se van</p>
+                    </div>
+                    <div class="p-4 bg-red-500/5 border border-red-500/20 rounded-xl">
+                        <div class="text-2xl font-bold text-red-400 mb-2">💸</div>
+                        <p class="text-sm text-primary/70">Dinero que no entra</p>
+                    </div>
+                </div>
+                <p class="text-lg text-primary/90 font-semibold mb-6">
+                    Pero eso puede cambiar HOY mismo. Conversemos sobre tu proyecto.
+                </p>
+                <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20no%20quiero%20perder%20más%20clientes.%20Hablemos%20YA" 
+                   class="primary-btn font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Quiero empezar YA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        ¿Hablamos de tu <span class="text-secondary">proyecto?</span>
+                    </h2>
+                    <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                        El primer paso es gratis y sin compromiso. Escoge la forma más cómoda para ti
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Información de contacto -->
+                <div class="fade-in-up delay-100">
+                    <h3 class="text-2xl font-bold text-primary mb-8">
+                        Múltiples formas de contactarme
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-secondary/5 rounded-xl border border-primary/20">
+                            <div class="p-3 bg-green-500 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-primary font-semibold">WhatsApp (Recomendado)</p>
+                                <a href="https://wa.me/+51951160567" class="text-primary/70 hover:text-primary transition-colors">+51 951 160 567</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-secondary/5 rounded-xl border border-primary/20">
+                            <div class="p-3 bg-primary rounded-lg">
+                                <svg class="w-6 h-6 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-primary font-semibold">Email</p>
+                                <a href="mailto:manuchoquepuma6@gmail.com" class="text-primary/70 hover:text-primary transition-colors">manuchoquepuma6@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-secondary/5 rounded-xl border border-primary/20">
+                            <div class="p-3 bg-secondary rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-primary font-semibold">Ubicación</p>
+                                <p class="text-primary/70">Arequipa, Perú</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales -->
+                    <div class="mt-8 pt-6 border-t border-primary/20">
+                        <p class="text-primary font-semibold mb-4">Sígueme en redes</p>
+                        <div class="flex gap-4">
+                            <a href="https://wa.me/+51951160567" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors group">
+                                <svg class="w-5 h-5 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/emanuel-choquepuma-5a739224b" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors group">
+                                <svg class="w-5 h-5 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://facebook.com/emanuel.choquepuma.9599" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors group">
+                                <svg class="w-5 h-5 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto rápido -->
+                <div class="fade-in-up delay-200">
+                    <div class="service-card rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">
+                            O cuéntame sobre tu proyecto aquí
+                        </h3>
+                        
+                        <form class="space-y-6" action="https://formspree.io/f/xrbldyeq" method="POST">
+                            <div>
+                                <label class="block text-sm font-semibold text-primary/70 mb-2">
+                                    Tu nombre *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    name="name"
+                                    placeholder="¿Cómo te llamas?" 
+                                    required
+                                    class="w-full p-4 border-2 border-primary/20 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none bg-background/50 text-primary placeholder-primary/50"
+                                />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-primary/70 mb-2">
+                                    WhatsApp *
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    name="phone"
+                                    placeholder="+51 999 999 999" 
+                                    required
+                                    class="w-full p-4 border-2 border-primary/20 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none bg-background/50 text-primary placeholder-primary/50"
+                                />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-primary/70 mb-2">
+                                    ¿Qué necesitas?
+                                </label>
+                                <select 
+                                    name="service"
+                                    class="w-full p-4 border-2 border-primary/20 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none bg-background/50 text-primary"
+                                >
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="sitio-web">Sitio web empresarial</option>
+                                    <option value="sistema">Sistema personalizado</option>
+                                    <option value="landing">Landing page</option>
+                                    <option value="no-se">No estoy seguro</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-primary/70 mb-2">
+                                    Cuéntame sobre tu proyecto *
+                                </label>
+                                <textarea 
+                                    name="message"
+                                    placeholder="Describe tu negocio y qué necesitas. Entre más detalles, mejor puedo ayudarte..." 
+                                    rows="4"
+                                    required
+                                    class="w-full p-4 border-2 border-primary/20 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none resize-none bg-background/50 text-primary placeholder-primary/50"
+                                ></textarea>
+                            </div>
+
+                            <input type="hidden" name="_subject" value="Nuevo cliente desde página de servicios">
+
+                            <button 
+                                type="submit"
+                                class="w-full primary-btn text-background font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                            >
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                                Enviar mi consulta
+                            </button>
+                        </form>
+
+                        <div class="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+                            <p class="text-sm text-primary/70 text-center">
+                                <svg class="w-4 h-4 inline text-green-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Te respondo en menos de 2 horas • Consulta 100% gratuita
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de WhatsApp directos -->
+            <div class="fade-in-up delay-300 mt-16 text-center">
+                <h3 class="text-2xl font-bold text-primary mb-8">
+                    O escoge el botón de tu proyecto
+                </h3>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20un%20sitio%20web%20empresarial" 
+                       class="whatsapp-btn text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        💼 Sitio web
+                    </a>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20un%20sistema%20personalizado" 
+                       class="whatsapp-btn text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        🚀 Sistema
+                    </a>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20necesito%20una%20landing%20page" 
+                       class="whatsapp-btn text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+                        </svg>
+                        🎯 Landing
+                    </a>
+
+                    <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20no%20sé%20qué%20necesito%20pero%20quiero%20mejorar%20mi%20presencia%20online" 
+                       class="primary-btn text-background font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        ❓ No sé qué necesito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-dark/20 to-primary/10 backdrop-blur-sm border-t border-primary/20 text-center py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center">
+                    <h1 class="font-bold text-3xl text-primary tracking-tight">
+                        EmaDev<span class="text-secondary">.</span>
+                    </h1>
+                </div>
+                
+                <div class="text-primary/60">
+                    © 2025 Emanuel Dev. Desarrollo web que impulsa tu negocio.
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-primary/70 hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-primary/70 hover:text-primary transition-colors">Servicios</a>
+                    <a href="#contacto" class="text-primary/70 hover:text-primary transition-colors">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-primary/20 text-center">
+                <p class="text-primary/50 text-sm">
+                    🚀 Transformando ideas en experiencias digitales excepcionales
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/+51951160567?text=Hola%20Emanuel,%20vi%20tu%20página%20de%20servicios%20y%20me%20interesa%20conversar" 
+           class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-2xl hover:shadow-green-500/25 pulse-glow flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(20, 20, 28, 0.95)';
+            } else {
+                header.style.background = 'rgba(20, 20, 28, 0.9)';
+            }
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect para las partículas
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.bg-orb');
+            
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.2);
+                orb.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+
+        // Mobile menu toggle (si decides agregarlo después)
+        function toggleMobileMenu() {
+            // Función para menú móvil futuro
+        }
+    </script>
+</body>
+</html>
